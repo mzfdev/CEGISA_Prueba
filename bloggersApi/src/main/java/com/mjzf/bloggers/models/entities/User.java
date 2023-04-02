@@ -2,6 +2,8 @@ package com.mjzf.bloggers.models.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity(name = "user_n")
@@ -10,6 +12,7 @@ public class User {
 	//Atributes
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private Long code;
 	
