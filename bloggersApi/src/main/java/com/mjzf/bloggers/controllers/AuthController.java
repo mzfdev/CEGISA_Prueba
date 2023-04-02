@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mjzf.bloggers.models.dtos.MessageDTO;
@@ -14,7 +15,8 @@ import com.mjzf.bloggers.services.UserService;
 
 import jakarta.validation.Valid;
 
-@RestController(value = "/auth")
+@RestController
+@RequestMapping("/auth")
 public class AuthController {
 	
 	@Autowired
@@ -28,7 +30,7 @@ public class AuthController {
 				String errors = result.getAllErrors().toString();
 				
 				return new ResponseEntity<>(
-						new MessageDTO("Hay algun error"),
+						new MessageDTO("Hay algun error" + errors),
 						HttpStatus.BAD_REQUEST
 						);
 			}
