@@ -10,6 +10,7 @@ import jakarta.persistence.ManyToOne;
 public class BlogReader {
 
 	//Atributes
+	@Id
 	private Long id;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
