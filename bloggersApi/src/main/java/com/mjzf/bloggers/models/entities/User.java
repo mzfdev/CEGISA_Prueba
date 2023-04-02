@@ -1,8 +1,10 @@
 package com.mjzf.bloggers.models.entities;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
+@Entity(name = "user_n")
 public class User {
 	
 	//Atributes
