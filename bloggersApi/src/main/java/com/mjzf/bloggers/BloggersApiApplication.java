@@ -7,7 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
-public class BloggersApiApplication {
+public class BloggersApiApplication{
 
 	public static void main(String[] args) {
 		SpringApplication.run(BloggersApiApplication.class, args);
@@ -17,5 +17,4 @@ public class BloggersApiApplication {
 	public PasswordEncoder encoder() {
 		return new BCryptPasswordEncoder();
 	}
-
 }
