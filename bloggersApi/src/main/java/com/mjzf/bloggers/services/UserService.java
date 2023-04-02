@@ -10,5 +10,6 @@ public interface UserService {
 	User findOneById(Long id) throws Exception ;
 	User findOneByIdentifier(String identifier) throws Exception;
 	List<User> findAll() throws Exception;
+	User findOneByUsernameAndEmail (String username, String email) throws Exception;
 	Boolean comparePassword(User user, String passToCompare) throws Exception;
 }

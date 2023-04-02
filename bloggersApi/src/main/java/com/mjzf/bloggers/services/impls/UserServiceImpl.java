@@ -59,6 +59,14 @@ public class UserServiceImpl implements UserService{
 	public List<User> findAll() throws Exception{
 		return userRepository.findAll();
 	}
+	
+	@Override
+	public User findOneByUsernameAndEmail(String username, String email) throws Exception {
+		User foundUser = userRepository
+				.findOneByUsernameOrEmail(username, email);
+		
+		return foundUser;
+	}
 
 	@Override
 	public Boolean comparePassword(User user, String passToCompare) throws Exception {
