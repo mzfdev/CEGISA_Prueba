@@ -2,6 +2,8 @@ package com.mjzf.bloggers.models.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,7 +30,8 @@ public class Blog {
 	private String description;
 	
 	@OneToMany(mappedBy = "blog", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-    private List<BlogReader> blogReaders;
+    @JsonIgnore
+	private List<BlogReader> blogReaders;
 
 	//Constructors
 	
