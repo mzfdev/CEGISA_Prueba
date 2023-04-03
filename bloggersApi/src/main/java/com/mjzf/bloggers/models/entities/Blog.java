@@ -2,10 +2,14 @@ package com.mjzf.bloggers.models.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
@@ -15,8 +19,9 @@ public class Blog {
 	//Atributes
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private int id;
+	private Long id;
 	
 	@Column(name = "title")
 	private String title;
@@ -25,7 +30,8 @@ public class Blog {
 	private String description;
 	
 	@OneToMany(mappedBy = "blog", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-    private List<BlogReader> blogReaders;
+    @JsonIgnore
+	private List<BlogReader> blogReaders;
 
 	//Constructors
 	
@@ -41,11 +47,11 @@ public class Blog {
 	
 	//Getters and Setters
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
