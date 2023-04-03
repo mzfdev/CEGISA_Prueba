@@ -50,6 +50,4 @@ public class ReaderServiceImpl implements ReaderService{
 		readerRepository.delete(reader);
 	}
 
-	
-
 }
