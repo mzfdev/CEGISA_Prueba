@@ -10,7 +10,6 @@ public class UserInfo {
 	private String username;
 	
 	@NotBlank
-	@Pattern(regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")
 	private String email;
 	
 	@NotBlank
@@ -19,7 +18,6 @@ public class UserInfo {
 	
 	@NotBlank
 	@Size(min = 8, max = 32)
-	@Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,32}$")
 	private String password;
 
 	public UserInfo() {
@@ -27,9 +25,9 @@ public class UserInfo {
 	}
 
 	public UserInfo(@NotBlank @Size(min = 4, max = 32) String username,
-			@NotBlank @Pattern(regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$") String email,
+			@NotBlank String email,
 			@NotBlank @Size(min = 4, max = 50) String name,
-			@NotBlank @Size(min = 8, max = 32) @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,32}$") String password) {
+			@NotBlank @Size(min = 8, max = 32) String password) {
 		super();
 		this.username = username;
 		this.email = email;
